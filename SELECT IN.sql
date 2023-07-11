@@ -1,7 +1,7 @@
-SELECT MIN(min_group."Количество студентов") as [Минимальное количество студентов] 
-	FROM(
-		SELECT COUNT(groupping.designation) as "Количество студентов"  
+SELECT MIN(min_group."РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ") as [РњРёРЅРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ] 
+       FROM(
+		SELECT COUNT(groupping.designation) as "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ"  
 		FROM groupping
 		JOIN students ON students.groupping_id = groupping.groupping_id
 		GROUP BY groupping.designation
-)as min_group
+            )as min_group
