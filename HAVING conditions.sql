@@ -1,19 +1,19 @@
----Пример HAVING
+---РќР°Р№С‚Рё РіСЂСѓРїРїСѓ СЃ РјРёРЅРёРјР°Р»СЊРЅС‹Рј РєРѕР»РёС‡РµСЃС‚РІРѕРј СЃС‚СѓРґРµРЅС‚РѕРІ
 
----HAVING работает с bool, 
----HAVING   COUNT(groupping.designation) = (ключевое условие, определяем MIN или MAX ...)
----Отобрать что совпадает с              = (ключевое условие)
+---HAVING СЂР°Р±РѕС‚Р°РµС‚ СЃ bool Р·РЅР°С‡РµРЅРёСЏРјРё (True, False) 
+---HAVING COUNT(groupping.designation) = (РѕСЃРЅРѕРІРЅРѕРµ СѓСЃР»РѕРІРёРµ, MIN, MAX...)
+---РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ (РЅР°РїСЂРёРјРµСЂ 3)   = (РѕСЃРЅРѕРІРЅРѕРµ СѓСЃР»РѕРІРёРµ)
 
-SELECT designation, COUNT(groupping.designation) as "Количество студентов" 
+SELECT designation, COUNT(groupping.designation) as "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ" 
 FROM groupping
 JOIN students ON students.groupping_id = groupping.groupping_id 
 GROUP BY designation
 HAVING COUNT(groupping.designation) = (
-	SELECT MIN(min_group."Количество студентов") 
+	SELECT MIN(min_group."РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ") 
 	FROM(
-		SELECT COUNT(groupping.designation) as "Количество студентов"  
+		SELECT COUNT(groupping.designation) as "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ"  
 		FROM groupping
 		JOIN students ON students.groupping_id = groupping.groupping_id
 		GROUP BY groupping.designation
-	)as min_group
+	    )as min_group
 )
