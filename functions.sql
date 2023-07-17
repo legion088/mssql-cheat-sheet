@@ -1,12 +1,12 @@
 
----Пример создания простой функции
+---РџСЂРёРјРµСЂ СЃРѕР·РґР°РЅРёСЏ РїСЂРѕСЃС‚РѕР№ С„СѓРЅРєС†РёРё
 
 CREATE FUNCTION CountStudents()
 RETURNS TABLE
 AS
 	RETURN
 	(
-		SELECT COUNT(students_id) as[Количество] FROM students
+		SELECT COUNT(students_id) as[РљРѕР»РёС‡РµСЃС‚РІРѕ] FROM students
 	);
 
 
